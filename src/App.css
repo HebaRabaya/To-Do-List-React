@@ -1,0 +1,112 @@
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: all 0.5s ease;
+  font-family: "Poppins", sans-serif;
+}
+
+.app.dark {
+  background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  /* إصلاح: زيادة الـ max-width */
+  max-width: 700px; /* غيرت من 550px إلى 700px */
+  color: #333;
+  animation: fadeIn 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.app.dark .container {
+  background: rgba(0, 0, 0, 0.3);
+  color: #f1f1f1;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  padding: 0 10px;
+  font-weight: 600;
+  font-size: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.stats span {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 25px;
+    margin: 15px;
+    /* في الشاشات المتوسطة نبقى على 550px */
+    max-width: 550px;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .stats span {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    border-radius: 16px;
+    max-width: 100%; /* في الهواتف نأخذ كل المساحة */
+  }
+
+  .stats {
+    font-size: 13px;
+  }
+
+  .stats span {
+    padding: 5px 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .container {
+    padding: 18px;
+    margin: 10px;
+  }
+
+  .app {
+    padding: 15px;
+  }
+}

@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5s ease;
+  line-height: 1.6;
+  /* إصلاح عام للنص */
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+/* تحسين مظهر Font Awesome */
+.fas,
+.fa,
+.fab,
+.far {
+  display: inline-block !important;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+  font-size: inherit;
+}
+
+/* تأكد من ظهور الأيقونات بشكل متسق */
+button .fas,
+button .fa {
+  font-size: inherit !important;
+  width: 1em !important;
+  height: 1em !important;
+  line-height: 1 !important;
+  vertical-align: middle !important;
+}
+
+/* إصلاح النص في جميع العناصر */
+div,
+span,
+p {
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  white-space: normal !important;
+}
+
+/* إصلاح خاص للنص في المهام */
+.task-text-content {
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  white-space: normal !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+/* تحسين التمرير */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+  border-radius: 3px;
+}
+
+/* إصلاح مشاكل الأزرار على الهواتف */
+button {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}

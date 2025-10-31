@@ -1,0 +1,287 @@
+.task-item {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* غيرت من center إلى flex-start */
+  font-size: 16px;
+  color: inherit;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  animation: slideIn 0.3s ease both;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  /* إضافة gap بين المحتوى والأزرار */
+  gap: 20px;
+}
+
+.task-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.task-item.done {
+  opacity: 0.8;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.task-content {
+  display: flex;
+  align-items: flex-start; /* غيرت من center إلى flex-start */
+  gap: 16px;
+  flex: 1;
+  min-width: 0;
+  /* إصلاح: تحديد عرض أقصى للمحتوى */
+  max-width: calc(100% - 160px); /* 100% ناقص مساحة الأزرار */
+}
+
+.check-btn {
+  background: rgba(255, 255, 255, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  cursor: pointer;
+  color: transparent;
+  transition: all 0.3s ease;
+  padding: 0;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  backdrop-filter: blur(10px);
+  margin-top: 2px; /* محاذاة مع النص */
+}
+
+.check-btn:hover {
+  border-color: #4caf50;
+  background: rgba(76, 175, 80, 0.2);
+  transform: scale(1.15);
+}
+
+.task-item.done .check-btn {
+  background: #4caf50;
+  border-color: #4caf50;
+  color: white;
+  box-shadow: 0 3px 10px rgba(76, 175, 80, 0.4);
+}
+
+.task-text {
+  flex: 1;
+  min-width: 0;
+  /* إصلاح: إزالة margin-right وإضافة padding */
+  padding-right: 10px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  white-space: normal;
+}
+
+.task-text span {
+  line-height: 1.5;
+  display: block;
+  font-weight: 600;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.85);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: normal;
+  white-space: normal;
+  /* إصلاح: السماح للنص بالتكيف */
+  width: 100%;
+}
+
+.app.dark .task-text span {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.task-item.done .task-text span {
+  color: #888 !important;
+  text-decoration: line-through;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 10px 14px;
+  font-size: 16px;
+  border: 2px solid #0072ff;
+  border-radius: 10px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 114, 255, 0.2);
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  align-items: center;
+  /* إصلاح: تحديد عرض ثابت للأزرار */
+  min-width: 140px;
+  justify-content: flex-end;
+}
+
+.action-btn {
+  background: white;
+  border: 2px solid;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.action-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: currentColor;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.action-btn i {
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.action-btn:hover::before {
+  transform: scale(1.1);
+}
+
+.action-btn:hover i {
+  transform: scale(1.1);
+}
+
+.action-btn:active {
+  transform: scale(1.05) translateY(0);
+}
+
+.complete-btn {
+  border-color: #4caf50;
+  background: #4caf50;
+  box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
+}
+
+.complete-btn:hover {
+  background: #45a049;
+  border-color: #45a049;
+  box-shadow: 0 8px 25px rgba(76, 175, 80, 0.4);
+}
+
+.edit-btn {
+  border-color: #2196f3;
+  background: #2196f3;
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.3);
+}
+
+.edit-btn:hover {
+  background: #1e88e5;
+  border-color: #1e88e5;
+  box-shadow: 0 8px 25px rgba(33, 150, 243, 0.4);
+}
+
+.delete-btn {
+  border-color: #f44336;
+  background: #f44336;
+  box-shadow: 0 5px 15px rgba(244, 67, 54, 0.3);
+}
+
+.delete-btn:hover {
+  background: #e53935;
+  border-color: #e53935;
+  box-shadow: 0 8px 25px rgba(244, 67, 54, 0.4);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .task-content {
+    max-width: calc(100% - 130px);
+  }
+  
+  .task-actions {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .task-item {
+    padding: 16px 18px;
+    flex-direction: column;
+    gap: 12px;
+    align-items: stretch;
+  }
+
+  .task-content {
+    width: 100%;
+    gap: 14px;
+    max-width: 100%; /* إزالة القيد في الهواتف */
+    margin-right: 0;
+  }
+
+  .check-btn {
+    width: 20px;
+    height: 20px;
+  }
+
+  .task-actions {
+    align-self: stretch;
+    justify-content: center;
+    gap: 12px;
+    min-width: auto;
+  }
+
+  .action-btn {
+    width: 42px;
+    height: 42px;
+    flex: 1;
+    max-width: 70px;
+  }
+
+  .action-btn i {
+    font-size: 16px;
+  }
+
+  .task-text span {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+}
